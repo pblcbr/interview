@@ -129,7 +129,7 @@ export default function Home() {
         <div className="brand">
           <span className="dot" />
           <div>
-            <h1>Catering Sabors de Barcelona</h1>
+            <h1>Eskisit Catering · Sitges</h1>
             <p>Entrevista de práctica · Event Manager</p>
           </div>
         </div>
@@ -143,10 +143,11 @@ export default function Home() {
       {!started ? (
         <section className="welcome">
           <div className="welcome-card">
-            <h2>¿Lista para practicar?</h2>
+            <h2>¿Lista para practicar, Josune?</h2>
             <p>
-              Vas a tener una entrevista simulada con <strong>Marta</strong>, la
-              dueña del catering, para el puesto de <strong>Event Manager</strong>.
+              Vas a tener una entrevista simulada con <strong>Cristina</strong>,
+              CEO de <strong>Eskisit Catering</strong> (Sitges) y responsable de
+              eventos y bodas, para el puesto de <strong>Event Manager</strong>.
               Responde con naturalidad, como si fuera real.
             </p>
             <p className="muted">
@@ -202,7 +203,7 @@ function ItemView({ item }: { item: Item }) {
   if (item.kind === "marta") {
     return (
       <div className="row left">
-        <div className="avatar">M</div>
+        <div className="avatar">C</div>
         <div className="bubble marta">
           {item.tema && <span className="tema">{item.tema}</span>}
           <p>{item.text}</p>
@@ -281,7 +282,7 @@ function Stars({ value }: { value: number }) {
 function Typing() {
   return (
     <div className="row left">
-      <div className="avatar">M</div>
+      <div className="avatar">C</div>
       <div className="bubble marta typing">
         <span></span>
         <span></span>

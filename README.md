@@ -1,12 +1,16 @@
 # Prepara tu entrevista · Event Manager (catering)
 
-Web de práctica para preparar una entrevista de **Event Manager** en un catering.
-Es un chat: tu amiga habla con **Marta**, la dueña de "Catering Sabors de
-Barcelona", que le hace una entrevista realista. Después de **cada respuesta**
-aparece un bloque de **📋 Recomendaciones** (lo que hizo bien, qué mejorar y un
-ejemplo de cómo decirlo mejor) antes de la siguiente pregunta.
+Web de práctica para preparar una entrevista de **Event Manager** en
+**Eskisit Catering** (Sitges, Barcelona). Es un chat: **Josune** habla con
+**Cristina**, CEO de Eskisit y responsable de eventos y bodas, que le hace una
+entrevista realista adaptada al negocio real (bodas y destination weddings,
+proveedores, timings, imprevistos…). Después de **cada respuesta** aparece un
+bloque de **📋 Recomendaciones** (lo que hizo bien, qué mejorar y un ejemplo de
+cómo decirlo mejor) antes de la siguiente pregunta.
 
 Está pensada para poder practicar el tiempo que haga falta, como un ensayo real.
+El contexto de la empresa y de la entrevistadora está en `SYSTEM_PROMPT`
+(`app/api/chat/route.ts`); ajústalo si cambian los datos.
 
 ## Cómo funciona
 
