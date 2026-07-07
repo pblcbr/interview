@@ -24,6 +24,22 @@ export const BANCO: Categoria[] = [
         q: "¿Dónde te ves dentro de tres años?",
         a: "Me veo consolidada como Event Manager de referencia dentro de Eskisit, llevando bodas y eventos de principio a fin con autonomía y siendo una persona de confianza para vosotras y para los clientes. Me gustaría también haber aportado mejoras en procesos —coordinación con proveedores, plantillas de presupuesto, protocolos del día del evento— y, si tiene sentido para la empresa, ayudar a hacer crecer la parte de destination weddings, donde creo que puedo aportar mucho por mi experiencia internacional y el inglés.",
       },
+      {
+        q: "¿Por qué quieres dejar tu trabajo actual y cambiar?",
+        a: "Estoy muy agradecida por lo aprendido en mi etapa actual y no me voy por ningún problema, me voy hacia un proyecto que me ilusiona de verdad. Busco volver a lo que más me apasiona —las bodas y la parte gastronómica—, donde el trabajo es más emocional, creativo y con contacto humano directo. Eskisit encaja exactamente con lo que quiero hacer los próximos años, y por eso doy el paso ahora.",
+      },
+      {
+        q: "Ahora trabajas en eventos corporativos. ¿Qué es lo que no te termina de llenar del mundo corporativo?",
+        a: "El mundo corporativo me ha aportado mucho —rigor, procesos, gestión de cliente B2B, comunicación—, pero echo en falta la parte emocional y creativa. Un evento corporativo suele ser más frío y estandarizado; una boda es única, tiene alma, y ves la emoción de la gente en directo. Disfruto cuidando cada detalle para que un día irrepetible salga perfecto, y eso lo encuentro mucho más en las bodas y en un catering como el vuestro. No es que el corporativo esté mal, es que mi vocación está en el otro lado.",
+      },
+      {
+        q: "¿Por qué quieres volver al mundo de las bodas después de estar en el corporativo?",
+        a: "Porque las bodas son mi verdadera vocación: empecé ahí como wedding planner y es donde más me he sentido yo misma. El paso por hotelería y por el corporativo me ha hecho más completa —venta, cotizaciones, procesos, clientes exigentes—, y ahora quiero volver a la emoción de una boda aportando toda esa experiencia extra. Es dar lo mejor de las dos partes: la sensibilidad de una wedding planner con la solidez de gestión que he ganado por el camino.",
+      },
+      {
+        q: "En tu CV se ven varios cambios de empresa. ¿Cómo sabemos que te quedarás con nosotras?",
+        a: "Entiendo la duda. Si miras mi trayectoria, cada cambio ha sido para crecer y sumar experiencia —wedding planning, hotelería de lujo, corporativo—, no por inestabilidad; de hecho llevo años compaginando proyectos de forma continuada. Ahora busco justo lo contrario: asentarme en un proyecto que me ilusione a largo plazo, y Eskisit es exactamente eso. Vengo a quedarme, a crecer con vosotras y a aportar estabilidad y experiencia al equipo.",
+      },
     ],
   },
   {

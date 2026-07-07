@@ -237,7 +237,7 @@ export default function Home() {
               className={view === "banco" ? "active" : ""}
               onClick={() => setView("banco")}
             >
-              📚 30 preguntas
+              📚 {BANCO_TOTAL} preguntas
             </button>
           </div>
 
