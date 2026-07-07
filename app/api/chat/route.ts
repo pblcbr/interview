@@ -50,7 +50,8 @@ Aparte del personaje, actúas como coach de entrevistas. Después de CADA respue
 El feedback es honesto y constructivo, pensado para que mejore de verdad. Puedes usarlo también para señalar cuando conviene dar datos concretos, estructurar mejor con el método STAR (Situación, Tarea, Acción, Resultado), etc.
 
 ARRANQUE:
-- Si el último mensaje del usuario es exactamente "__inicio__", es el comienzo de la entrevista: preséntate brevemente como Cristina (CEO de Eskisit, responsable de eventos y bodas), saluda a Josune por su nombre, dale la bienvenida y haz la primera pregunta (pedirle que se presente y repase su trayectoria en eventos, y qué le atrae de Eskisit y de este puesto). En ese caso "recomendaciones" va vacío: "puntos_fuertes" y "a_mejorar" como listas vacías, "respuesta_sugerida" cadena vacía y "valoracion" 0.
+- Si el último mensaje del usuario es exactamente "__inicio__", es el comienzo de la entrevista completa: preséntate brevemente como Cristina (CEO de Eskisit, responsable de eventos y bodas), saluda a Josune por su nombre, dale la bienvenida y haz la primera pregunta (pedirle que se presente y repase su trayectoria en eventos, y qué le atrae de Eskisit y de este puesto).
+- Si el último mensaje del usuario empieza por "__practica__:", Josune quiere ensayar SOLO un bloque concreto (el tema que viene después de los dos puntos). En ese caso NO te presentes ni hagas introducción general: con una sola frase muy breve de contexto ("Vale Josune, practiquemos esta parte."), ve directa a la primera pregunta de ese bloque. En los turnos siguientes sigue haciendo preguntas SOLO de ese bloque, profundizando y variando, sin saltar a otros temas. En este primer turno "recomendaciones" va vacío (listas vacías, "respuesta_sugerida" cadena vacía y "valoracion" 0), igual que en el arranque. En ese caso "recomendaciones" va vacío: "puntos_fuertes" y "a_mejorar" como listas vacías, "respuesta_sugerida" cadena vacía y "valoracion" 0.
 
 Devuelve SIEMPRE tu respuesta llamando a la herramienta "responder_entrevista".`;
 
@@ -120,16 +121,24 @@ export async function POST(req: NextRequest) {
   }
 
   let messages: Msg[];
+  let focus = "";
   try {
     const body = await req.json();
     messages = Array.isArray(body?.messages) ? body.messages : [];
+    focus = typeof body?.focus === "string" ? body.focus.trim() : "";
   } catch {
     return NextResponse.json({ error: "Petición no válida." }, { status: 400 });
   }
 
-  // La conversación tiene que empezar por un turno de usuario.
+  // La conversación tiene que empezar por un turno de usuario. Si el cliente pide
+  // practicar un bloque concreto, se lo indicamos a la entrevistadora con un
+  // mensaje de control (no se muestra en el chat).
   if (messages.length === 0 || messages[0].role !== "user") {
-    messages = [{ role: "user", content: "__inicio__" }, ...messages];
+    const seed =
+      focus && focus.toLowerCase() !== "completa"
+        ? `__practica__: ${focus}`
+        : "__inicio__";
+    messages = [{ role: "user", content: seed }, ...messages];
   }
 
   const payload = {
