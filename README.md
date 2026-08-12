@@ -1,66 +1,80 @@
-# Prepara tu entrevista · Event Manager (catering)
+# Interview practice · FP&A Nordics at Puig
 
-Web de práctica para preparar una entrevista de **Event Manager** en
-**Eskisit Catering** (Sitges, Barcelona). Es un chat: **Josune** habla con
-**Cristina**, CEO de Eskisit y responsable de eventos y bodas, que le hace una
-entrevista realista adaptada al negocio real (bodas y destination weddings,
-proveedores, timings, imprevistos…). Después de **cada respuesta** aparece un
-bloque de **📋 Recomendaciones** (lo que hizo bien, qué mejorar y un ejemplo de
-cómo decirlo mejor) antes de la siguiente pregunta.
+A practice web app for **María**, preparing her **second-round interview** for an
+**FP&A role covering the Nordics cluster** (Sweden, Denmark, Norway, Finland) at
+**Puig**, on a **6-month temporary contract**. Everything runs **in English**.
 
-Está pensada para poder practicar el tiempo que haga falta, como un ensayo real.
-El contexto de la empresa y de la entrevistadora está en `SYSTEM_PROMPT`
-(`app/api/chat/route.ts`); ajústalo si cambian los datos.
+It is a chat with a two-person panel:
 
-## Cómo funciona
+- **Ingrid Larsson** — Finance Director, Nordics (the hiring manager, who already
+  met María in the first interview). Leads the technical and business questions.
+- **Sofie Berg** — HR Business Partner. Leads behavioural, motivation, culture
+  and contract questions.
 
-- **Next.js** (App Router) desplegable en **Vercel**.
-- Una función serverless (`app/api/chat/route.ts`) llama a la **API de Claude
-  (Anthropic)**. La clave nunca está en el navegador: va como variable de entorno.
-- Claude hace dos papeles a la vez: **entrevistadora** (el mensaje que ves en el
-  chat) y **coach** (las recomendaciones). La respuesta viene estructurada para
-  poder mostrar cada parte por separado.
+After **every answer** a **coaching block** appears: what worked well, what to
+improve, a model answer and a score out of 5 — before the next question.
 
-## Puesta en marcha en local
+> The two interviewers are realistic simulations for practice, not real named
+> Puig employees.
 
-1. Instala dependencias:
+## What's in it
+
+- **Full panel interview** from start to finish, or **jump straight to a stage**
+  from the left-hand menu: motivation & the 6-month contract, budget/forecast/close,
+  beauty & FMCG commercial finance, systems & data, business partnering,
+  behavioural (HR), and closing.
+- **Question bank**: likely interview questions with a **model answer** for each,
+  grouped by category. Text in `[brackets]` marks where María plugs in her own
+  experience. This view uses no API calls.
+
+## How it works
+
+- **Next.js** (App Router), deployable on **Vercel**.
+- A serverless function (`app/api/chat/route.ts`) calls the **Claude API**. The
+  key never reaches the browser: it lives in an environment variable.
+- Claude plays both interviewers *and* the coach; the reply is structured so the
+  UI can show the panel message and the coaching separately, and knows which
+  interviewer is speaking.
+
+## Running locally
+
+1. Install dependencies:
    ```bash
    npm install
    ```
-2. Copia `.env.example` a `.env.local` y pon tu clave:
+2. Copy `.env.example` to `.env.local` and add your key:
    ```bash
    cp .env.example .env.local
-   # edita .env.local y pega tu ANTHROPIC_API_KEY
+   # edit .env.local and paste your ANTHROPIC_API_KEY
    ```
-   La clave se obtiene en <https://console.anthropic.com>.
-3. Arranca en modo desarrollo:
+   Get a key at <https://console.anthropic.com>.
+3. Start the dev server:
    ```bash
    npm run dev
    ```
-   Abre <http://localhost:3000>.
+   Open <http://localhost:3000>.
 
-## Desplegar en Vercel
+## Deploying on Vercel
 
-1. Sube el repo a Vercel (Import Project) o usa la integración de despliegue.
-2. En **Project Settings → Environment Variables** añade:
-   - `ANTHROPIC_API_KEY` = tu clave de Anthropic (obligatoria).
-   - `ANTHROPIC_MODEL` = `claude-sonnet-5` (opcional; por defecto ya es ese).
-3. Vuelve a desplegar (Redeploy). Sin la clave, la web carga pero muestra un
-   aviso de que falta configurarla.
+1. Import the repo at <https://vercel.com/new>.
+2. Under **Settings → Environment Variables** add:
+   - `ANTHROPIC_API_KEY` — your Anthropic key (required).
+   - `ANTHROPIC_MODEL` — optional, defaults to `claude-sonnet-5`.
+3. Deploy. Without the key the site loads but shows a clear warning.
 
-Las funciones se ejecutan en la región **`cdg1` (París)**, la más cercana a
-Barcelona con baja latencia (ver `vercel.json`).
+Functions run in the **`cdg1` (Paris)** region — see `vercel.json`.
 
-## Variables de entorno
+## Environment variables
 
-| Variable            | Obligatoria | Descripción                                                        |
-| ------------------- | ----------- | ------------------------------------------------------------------ |
-| `ANTHROPIC_API_KEY` | Sí          | Clave de la API de Claude (Anthropic).                             |
-| `ANTHROPIC_MODEL`   | No          | Modelo a usar. Por defecto `claude-sonnet-5`. Puedes subir a `claude-opus-4-8` para máxima calidad (más caro). |
+| Variable            | Required | Description                                                    |
+| ------------------- | -------- | -------------------------------------------------------------- |
+| `ANTHROPIC_API_KEY` | Yes      | Claude (Anthropic) API key.                                     |
+| `ANTHROPIC_MODEL`   | No       | Defaults to `claude-sonnet-5`. Use `claude-opus-4-8` for maximum quality (pricier). |
 
-## Personalización rápida
+## Customising
 
-- **Empresa, puesto y estilo de la entrevistadora:** edita `SYSTEM_PROMPT` en
+- **Company, role, interviewers and interview structure:** `SYSTEM_PROMPT` in
   `app/api/chat/route.ts`.
-- **Temas de la entrevista:** también en `SYSTEM_PROMPT` (la lista de bloques).
-- **Colores y estética:** variables CSS al principio de `app/globals.css`.
+- **Stages in the left menu:** the `STAGES` array in `app/page.tsx`.
+- **Question bank:** `app/questions.ts`.
+- **Colours and styling:** the CSS variables at the top of `app/globals.css`.

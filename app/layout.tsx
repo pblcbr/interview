@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prepara tu entrevista · Event Manager en Eskisit Catering",
+  title: "Interview practice · FP&A Nordics at Puig",
   description:
-    "Practica tu entrevista para Event Manager en Eskisit Catering (Sitges), con feedback después de cada respuesta.",
+    "Practise your second-round interview for the FP&A Nordics role at Puig, with coaching feedback after every answer.",
 };
 
 export const viewport: Viewport = {
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

@@ -1,8 +1,8 @@
 {
-  "name": "prep-entrevista",
+  "name": "interview-prep-fpa-nordics",
   "version": "1.0.0",
   "private": true,
-  "description": "Agente conversacional para preparar una entrevista de Event Manager en un catering",
+  "description": "Interview practice agent for an FP&A Nordics role at Puig",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
