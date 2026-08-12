@@ -14,6 +14,14 @@ It is a chat with a two-person panel:
 After **every answer** a **coaching block** appears: what worked well, what to
 improve, a model answer and a score out of 5 — before the next question.
 
+The panel is loaded with María's real background (8+ years in controlling:
+Regional Planning & Reporting at **Nestlé** for Central America, **Bershka /
+Inditex** as Pricing Controller then Sr. Business Controller, plus Santander),
+so the questions build on her actual experience and challenge her where it
+matters — selective beauty being new to her, and the move from a Central America
+cluster to a Nordics one. HR handles availability and mobility professionally and
+never asks about family or personal circumstances.
+
 > The two interviewers are realistic simulations for practice, not real named
 > Puig employees.
 

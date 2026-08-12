@@ -58,6 +58,13 @@ const STAGES: Stage[] = [
       "Motivation and fit: why Puig, why this FP&A role for the Nordics, why she is open to a six-month temporary contract, availability and notice period",
   },
   {
+    id: "track",
+    label: "Your track record",
+    desc: "Nestlé, Bershka, the gap",
+    focus:
+      "Her own track record, probed in depth: her Regional Planning & Reporting role at Nestlé for Central America (the target-setting tool and the dynamic P&L reporting system), her years at Bershka as Pricing Controller and then Sr. Business Controller, what transfers from FMCG and fashion retail into selective beauty, the fact that this would be her first role in beauty, and the period since she left Nestlé in September 2025",
+  },
+  {
     id: "core",
     label: "Budget, forecast & close",
     desc: "Cycles, variance, reporting",
